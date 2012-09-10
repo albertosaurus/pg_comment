@@ -1,3 +1,7 @@
+= NOTE:
+
+I'm deprecating this in favor of PgPower: https://github.com/TMXCredit/pg_power  It uses this db comment code, plus gives all sorts of other goodies like schemas and partial indexes.  As a bonus, the comment syntax is 100% compatible.
+
 = PgComment
 
 In any PostgreSQL database where the Rails app is not the only consumer, it is very helpful to have comments on the various elements of the schema.  PgComment extends the migrations DSL with methods to set and remove comments on columns and tables.  It also dumps those comments into your schema.rb.
