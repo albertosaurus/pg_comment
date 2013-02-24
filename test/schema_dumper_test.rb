@@ -1,9 +1,4 @@
-require 'fake_connection'
-require 'rubygems'
-gem 'test-unit'
-require 'test/unit'
-require 'active_record'
-require 'pg_comment/schema_dumper'
+require 'test_helper'
 
 class SchemaDumperTest < Test::Unit::TestCase
   class SchemaDumpContainer

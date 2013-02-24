@@ -1,7 +1,4 @@
-require 'rubygems'
-gem 'test-unit'
-require 'test/unit'
-require 'pg_comment/connection_adapters/postgresql_adapter'
+require 'test_helper'
 
 class PostgreSQLAdapterTest < Test::Unit::TestCase
   class Adapter
@@ -85,6 +82,10 @@ class PostgreSQLAdapterTest < Test::Unit::TestCase
       assert_equal expected[index]['column_name'], column_name
       assert_equal expected[index]['comment'], comment
     end
+  end
+
+  def test_supports_comments
+    assert_true @adapter.supports_comments?
   end
 
 end
