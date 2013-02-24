@@ -12,7 +12,8 @@ Obviously, only the PostgreSQL adapter is supported.  All bug reports are welcom
 
 I'm deprecating this in favor of PgPower: https://github.com/TMXCredit/pg_power  It uses this db comment code,
 plus gives all sorts of other goodies like schemas and partial indexes.  Since it uses this very code to
-support database comments, the comment syntax is 100% compatible.
+support database comments, the comment syntax is 100% compatible.  You should use PgPower unless it conflicts
+with your other gems or it's too heavyweight for your needs.
 
 ## Requirements
 
@@ -41,10 +42,10 @@ PgComment adds five methods to the migrations DSL:
 * `remove_table_comment(table_name)`
 * `set_column_comment(table_name, column_name, comment)`
 * `remove_column_comment(table_name, column_name, comment)`
-* `set_column_comments(table_name, comments)`
-* `remove_column_comments(table_name, *comments)`
+* `set_column_comments(table_name, column_comment_hash)`
+* `remove_column_comments(table_name, *column_names)`
 
-## Examples
+### Examples
 
 ```ruby
 # Set a comment on the given table.
@@ -68,7 +69,7 @@ set_column_comments :phone_numbers,
 remove_column_comments :phone_numbers, :npa, :nxx
 ```
 
-PgComment also adds extra methods to change_table.
+PgComment also adds extra methods to `change_table`.
 
 ```ruby
 # Set comments:
