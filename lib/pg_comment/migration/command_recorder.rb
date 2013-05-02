@@ -6,7 +6,7 @@ module PgComment
       end
 
       def remove_table_comment(*args)
-        record(:remove_table_comments, args)
+        record(:remove_table_comment, args)
       end
 
       def set_column_comment(*args)
@@ -37,7 +37,7 @@ module PgComment
       end
 
       def invert_set_column_comments(args)
-        i_args = [args[0]] + args[1].collect{|name, value| name  }
+        i_args = [args[0]] + args[1].collect{|name, _| name  }
         [:remove_column_comments, i_args]
       end
     end

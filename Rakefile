@@ -1,8 +1,8 @@
 require "bundler/gem_tasks"
-require "rake/testtask"
 
-Rake::TestTask.new do |t|
-  t.libs << "test"
-  t.test_files = FileList['test/*test.rb']
-  t.verbose = true
-end
+APP_RAKEFILE = File.expand_path("../spec/dummy/Rakefile", __FILE__)
+load 'rails/tasks/engine.rake'
+
+desc 'Run specs'
+task 'spec' => ['db:drop', 'db:create', 'db:migrate', 'app:spec']
+task :default => :spec

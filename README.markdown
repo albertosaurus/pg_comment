@@ -6,14 +6,8 @@ In any PostgreSQL database where the Rails app is not the only consumer, it is v
 on the various elements of the schema.  PgComment extends the migrations DSL with methods to set and remove
 comments on columns and tables.  It also dumps those comments into your schema.rb.
 
-Obviously, only the PostgreSQL adapter is supported.  All bug reports are welcome.
-
-## NOTE:
-
-I'm deprecating this in favor of PgPower: https://github.com/TMXCredit/pg_power  It uses this db comment code,
-plus gives all sorts of other goodies like schemas and partial indexes.  Since it uses this very code to
-support database comments, the comment syntax is 100% compatible.  You should use PgPower unless it conflicts
-with your other gems or it's too heavyweight for your needs.
+Obviously, only the PostgreSQL adapter (ether 'pg' or 'activerecord-jdbcpostgresql-adapter')
+is supported.  All bug reports are welcome.
 
 ## Requirements
 

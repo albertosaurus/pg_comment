@@ -1,0 +1,12 @@
+development: &default
+  adapter: postgresql
+  encoding: unicode
+  database: pg_comment_dummy_development
+  pool: 5
+  username: postgres
+  password: secret
+  host: localhost
+
+test:
+  <<: *default
+  database: pg_comment_dummy_test
