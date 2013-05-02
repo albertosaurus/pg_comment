@@ -1,6 +1,7 @@
 require "bundler/gem_tasks"
 
 APP_RAKEFILE = File.expand_path("../spec/dummy/Rakefile", __FILE__)
+puts "Loading app rakefile at #{APP_RAKEFILE}"
 load 'rails/tasks/engine.rake'
 
 desc 'Run specs'
