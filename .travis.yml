@@ -1,6 +1,6 @@
 language: ruby
 before_script:
   - psql -c "create database pg_comment_dummy_test;" -U postgres
-script: 'bundle exec rake spec'
+script: 'bundle exec rake spec --trace'
 rvm:
   - 1.9.3
