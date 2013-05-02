@@ -4,7 +4,7 @@ https://github.com/albertosaurus/pg_comment
 
 In any PostgreSQL database where the Rails app is not the only consumer, it is very helpful to have comments
 on the various elements of the schema.  PgComment extends the migrations DSL with methods to set and remove
-comments on columns and tables.  It also dumps those comments into your schema.rb.
+comments on columns, tables and indexes.  It also dumps those comments into your schema.rb.
 
 Obviously, only the PostgreSQL adapter (ether 'pg' or 'activerecord-jdbcpostgresql-adapter')
 is supported.  All bug reports are welcome.
@@ -30,7 +30,7 @@ Alternatively you can manually install from RubyGems:
 
 ## Usage
 
-PgComment adds five methods to the migrations DSL:
+PgComment adds eight methods to the migrations DSL:
 
 * `set_table_comment(table_name, comment)`
 * `remove_table_comment(table_name)`
@@ -38,6 +38,8 @@ PgComment adds five methods to the migrations DSL:
 * `remove_column_comment(table_name, column_name, comment)`
 * `set_column_comments(table_name, column_comment_hash)`
 * `remove_column_comments(table_name, *column_names)`
+* `set_index_comment(index_name, comment)`
+* `remove_index_comment(index_name)`
 
 ### Examples
 
@@ -61,6 +63,12 @@ set_column_comments :phone_numbers,
 
 # Remove comments from multiple columns in the table.
 remove_column_comments :phone_numbers, :npa, :nxx
+
+# Set a comment on an index
+set_index_comment :index_phone_numbers_on_npa, 'Unique index on area code'
+
+# Remove a comment from an index
+remove_index_comment :index_phone_numbers_on_npa
 ```
 
 PgComment also adds extra methods to `change_table`.

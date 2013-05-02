@@ -25,6 +25,14 @@ module PgComment
         record(:remove_column_comments, args)
       end
 
+      def set_index_comment(*args)
+        record(:set_index_comment, args)
+      end
+
+      def remove_index_comment(*args)
+        record(:remove_index_comment, args)
+      end
+
       def invert_set_table_comment(args)
         table_name = args.first
         [:remove_table_comment, [table_name]]
@@ -39,6 +47,11 @@ module PgComment
       def invert_set_column_comments(args)
         i_args = [args[0]] + args[1].collect{|name, _| name  }
         [:remove_column_comments, i_args]
+      end
+
+      def invert_set_index_comment(args)
+        index_name = args.first
+        [:remove_index_comment, [index_name]]
       end
     end
   end

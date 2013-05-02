@@ -18,6 +18,8 @@ describe PgComment::ConnectionAdapters::AbstractAdapter do
       :set_column_comments,
       :remove_table_comment,
       :remove_column_comment,
-      :remove_column_comments ].each { |method_name| adapter_stub.respond_to?(method_name).should be_true }
+      :remove_column_comments,
+      :set_index_comment,
+      :remove_index_comment ].each { |method_name| adapter_stub.respond_to?(method_name).should be_true }
   end
 end

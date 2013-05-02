@@ -16,4 +16,8 @@ describe ActiveRecord::SchemaDumper do
     @dump.should =~ /set_column_comment 'vegetables', 'price', 'vegetable cost'/
     @dump.should =~ /set_column_comment 'vegetables', 'comment', 'thoughts'/
   end
+
+  it 'dumps index comments' do
+    @dump.should =~ /set_index_comment 'index_vegetables_on_name', 'Comment on index'/
+  end
 end

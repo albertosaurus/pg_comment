@@ -19,9 +19,13 @@ ActiveRecord::Schema.define(:version => 20130502030557) do
     t.string  "comment"
   end
 
+  add_index "vegetables", ["name"], :name => "index_vegetables_on_name", :unique => true
+
+  set_index_comment 'index_vegetables_on_name', 'Comment on index'
   set_table_comment 'vegetables', 'Healthy and delicious'
   set_column_comment 'vegetables', 'name', 'The name of the vegetable'
   set_column_comment 'vegetables', 'price', 'vegetable cost'
   set_column_comment 'vegetables', 'comment', 'thoughts'
 
+  set_index_comment 'index_vegetables_on_name', 'Comment on index'
 end
