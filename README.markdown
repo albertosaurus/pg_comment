@@ -3,6 +3,7 @@
 https://github.com/albertosaurus/pg_comment
 
 [![Build Status](https://travis-ci.org/albertosaurus/pg_comment.png)](https://travis-ci.org/albertosaurus/pg_comment)
+[![Code Climate](https://codeclimate.com/github/albertosaurus/pg_comment.png)](https://codeclimate.com/github/albertosaurus/pg_comment)
 
 In any PostgreSQL database where the Rails app is not the only consumer, it is very helpful to have comments
 on the various elements of the schema.  PgComment extends the migrations DSL with methods to set and remove
