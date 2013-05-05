@@ -75,6 +75,7 @@ SELECT c.relname AS index_name, d.description AS comment
 FROM pg_description d
 JOIN pg_class c ON c.oid = d.objoid
 WHERE c.relkind = 'i'
+ORDER BY index_name
                    }
         com.inject({}) do |hash, row|
           hash[row['index_name']] = row['comment']

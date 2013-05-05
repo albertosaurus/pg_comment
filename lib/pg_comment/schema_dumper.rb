@@ -11,6 +11,12 @@ module PgComment
       @connection.tables.sort.each do |table_name|
         dump_comments(table_name, stream)
       end
+
+      unless (index_comments = @connection.index_comments).empty?
+        index_comments.each_pair do |index_name, comment|
+          stream.puts "  set_index_comment '#{index_name}', '#{comment.gsub(/'/, "\\\\'")}'"
+        end
+      end
     end
 
     def dump_comments(table_name, stream)
@@ -28,12 +34,6 @@ module PgComment
 
         stream.puts comment_statements.join("\n")
         stream.puts
-      end
-
-      unless (index_comments = @connection.index_comments).empty?
-        index_comments.each_pair do |index_name, comment|
-          stream.puts "  set_index_comment '#{index_name}', '#{comment.gsub(/'/, "\\\\'")}'"
-        end
       end
     end
     private :dump_comments
