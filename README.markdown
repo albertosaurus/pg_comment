@@ -99,6 +99,28 @@ change_table :phone_numbers do |t|
 end
 ```
 
+## Testing
+
+Install the development dependencies (you will need to compile the native dependencies
+for Postgres, so make sure your development environment is set up)
+
+    bundle install
+
+Modify the credentials in `spec/dummy/config/database.yml` as needed, then run specs.
+
+    bundle exec rake spec
+
+Test coverage (as measured by SimpleCov) should be 100%
+
+## Contributions
+
+Contributions are welcome and appreciated.  However, before you submit your pull request, please be sure to do the
+following:
+
+* Make sure all specs pass.
+* Make sure you have test coverage for any new features; run `bundle exec rake spec`
+* Make sure any new code has RDoc comments; run `bundle exec yard stats --list-undoc`
+
 ## License
 
 Copyright (c) 2011-2013 Arthur Shagall, Mindflight, Inc.

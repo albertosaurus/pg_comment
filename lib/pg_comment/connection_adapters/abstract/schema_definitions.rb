@@ -1,13 +1,14 @@
 module PgComment
   module ConnectionAdapters
-    module SchemaDefinitions
-      def self.included(base)
+    module SchemaDefinitions # :nodoc:
+      def self.included(base) # :nodoc:
         base::Table.class_eval do
           include PgComment::ConnectionAdapters::Table
         end
       end
     end
 
+    # Extensions to ActiveRecord::ConnectionAdapters::Table
     module Table
       extend ActiveSupport::Concern
 

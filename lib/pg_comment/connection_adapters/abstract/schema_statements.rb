@@ -1,15 +1,17 @@
 module PgComment
   module ConnectionAdapters
-    module SchemaStatements
-      def self.included(base)
+    module SchemaStatements # :nodoc:
+      def self.included(base) # :nodoc:
         base::AbstractAdapter.class_eval do
           include PgComment::ConnectionAdapters::AbstractAdapter
         end
       end
     end
 
+    # PgComment method stubs for the abstract connection adapter
     module AbstractAdapter
 
+      # Returns false (default use case)
       def supports_comments?
         false
       end

@@ -1,7 +1,6 @@
-require "bundler/gem_tasks"
+require 'bundler/gem_tasks'
 
-APP_RAKEFILE = File.expand_path("../spec/dummy/Rakefile", __FILE__)
-puts "Loading app rakefile at #{APP_RAKEFILE}"
+APP_RAKEFILE = File.expand_path('../spec/dummy/Rakefile', __FILE__)
 load 'rails/tasks/engine.rake'
 
 desc 'Run specs'
@@ -34,7 +33,7 @@ namespace :git do
     sh "git tag -a #{gem_version_tag} -m \"Version #{gem_version}\""
   end
 
-  desc "Push git tag to GitHub"
+  desc 'Push git tag to GitHub'
   task :push_tags do
     sh 'git push --tags'
   end

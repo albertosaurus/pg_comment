@@ -1,4 +1,6 @@
 module PgComment
+
+  # PgComment engine.  See docs on Rails engines.
   class Engine < Rails::Engine
     initializer 'pg_comment.load_adapter' do
       ActiveSupport.on_load :active_record do
