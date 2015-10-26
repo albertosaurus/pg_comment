@@ -150,7 +150,7 @@ ORDER BY index_name
   end
 end
 
-[:PostgreSQLAdapter, :JdbcAdapter].each do |adapter|
+["PostGISAdapter::MainAdapter", "PostgreSQLAdapter", "JdbcAdapter"].each do |adapter|
   begin
     ActiveRecord::ConnectionAdapters.const_get(adapter).class_eval do
       include PgComment::ConnectionAdapters::PostgreSQLAdapter
