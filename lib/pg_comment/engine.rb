@@ -20,8 +20,15 @@ module PgComment
         end
 
         conf_name = ActiveRecord::Base.connection_pool.spec.config[:adapter]
-        if conf_name == 'postgresql' then
-          require 'pg_comment/connection_adapters/postgresql_adapter'
+        if conf_name == 'postgresql' || conf_name == "postgis"
+          ["PostGISAdapter::MainAdapter", "PostgreSQLAdapter", "JdbcAdapter"].each do |adapter|
+            begin
+              ::ActiveRecord::ConnectionAdapters.const_get(adapter).class_eval do
+                include ::PgComment::ConnectionAdapters::PostgreSQLAdapter
+              end
+            rescue
+            end
+          end
         end
       end
     end

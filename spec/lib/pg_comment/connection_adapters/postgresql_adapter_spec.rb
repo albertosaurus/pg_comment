@@ -16,7 +16,7 @@ describe PgComment::ConnectionAdapters::PostgreSQLAdapter do
   let(:connection){ ConnectionStub.new }
 
   it 'should support comments' do
-    connection.supports_comments?.should be_true
+    expect(connection.supports_comments?).to eq(true)
   end
 
   context 'comment methods' do

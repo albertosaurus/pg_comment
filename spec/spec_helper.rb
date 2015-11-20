@@ -7,8 +7,9 @@ unless ENV['TRAVIS']
   end
 end
 
-require File.expand_path("../dummy/config/environment.rb",  __FILE__)
+require File.expand_path("../dummy/config/environment",  __FILE__)
 require 'rspec/rails'
+require 'pg_comment'
 
 RSpec.configure do |config|
   config.mock_with :rspec

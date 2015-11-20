@@ -149,12 +149,3 @@ ORDER BY index_name
     end
   end
 end
-
-[:PostgreSQLAdapter, :JdbcAdapter].each do |adapter|
-  begin
-    ActiveRecord::ConnectionAdapters.const_get(adapter).class_eval do
-      include PgComment::ConnectionAdapters::PostgreSQLAdapter
-    end
-  rescue
-  end
-end

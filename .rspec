@@ -1,2 +1,4 @@
---colour
---format nested
+--color
+--profile
+--backtrace
+--format documentation

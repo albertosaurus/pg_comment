@@ -9,7 +9,7 @@ describe PgComment::ConnectionAdapters::AbstractAdapter do
   let(:adapter_stub){ AbstractAdapterStub.new }
 
   it 'should not support comments by default' do
-    adapter_stub.supports_comments?.should be_false
+    expect(adapter_stub.supports_comments?).to eq(false)
   end
 
   it 'should define method stubs for comment methods' do
@@ -20,6 +20,6 @@ describe PgComment::ConnectionAdapters::AbstractAdapter do
       :remove_column_comment,
       :remove_column_comments,
       :set_index_comment,
-      :remove_index_comment ].each { |method_name| adapter_stub.respond_to?(method_name).should be_true }
+      :remove_index_comment ].each { |method_name| expect(adapter_stub.respond_to?(method_name)).to eq(true) }
   end
 end

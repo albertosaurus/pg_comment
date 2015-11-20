@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["arthur.shagall@gmail.com"]
   s.homepage    = "https://github.com/albertosaurus/pg_comment"
   s.summary     = 'Postgres Comments for Rails'
-  s.description = 'Extends Rails migrations to support setting column and table comments.  Pulls out comments into schema.rb'
+  s.description = 'Extends Rails migrations to support setting column and table comments. Pulls out comments into schema.rb'
 
   s.rubyforge_project = "pg_comment"
 
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency('activerecord', '~> 3.0')
-  s.add_development_dependency('rails', '~> 3.2')
+  s.add_dependency('rails', '~> 3.2')
   s.add_development_dependency('pg')
-  s.add_development_dependency('rspec-rails')
+  s.add_development_dependency('rspec-rails', '~> 3.4')
 end

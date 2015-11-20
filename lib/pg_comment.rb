@@ -1,3 +1,4 @@
+require 'rails'
 require 'pg_comment/version'
 require 'active_support/all'
 
@@ -7,22 +8,20 @@ require 'active_support/all'
 # on columns, tables and indexes. It also dumps those comments into your
 # schema.rb.
 module PgComment
-  extend ActiveSupport::Autoload
-  autoload :Adapter
-  autoload :SchemaDumper
 
   module ConnectionAdapters # :nodoc:
-    extend ActiveSupport::Autoload
-
-    autoload_under 'abstract' do
-      autoload :SchemaDefinitions
-      autoload :SchemaStatements
-    end
   end
 
   module Migration # :nodoc:
-    autoload :CommandRecorder, 'pg_comment/migration/command_recorder'
   end
 end
 
-require 'pg_comment/engine' if defined?(Rails)
+if defined?(Rails)
+  require 'pg_comment/schema_dumper'
+  require 'pg_comment/migration/command_recorder'
+  require 'pg_comment/connection_adapters/abstract/schema_definitions'
+  require 'pg_comment/connection_adapters/abstract/schema_statements'
+  require 'pg_comment/connection_adapters/postgresql_adapter'
+
+  require 'pg_comment/engine'
+end
