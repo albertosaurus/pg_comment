@@ -121,6 +121,8 @@ following:
 * Make sure you have test coverage for any new features; run `bundle exec rake spec`
 * Make sure any new code has RDoc comments; run `bundle exec yard stats --list-undoc`
 
+Also, please see CONTRIBUTING.markdown.
+
 ## License
 
 Copyright (c) 2011-2013 Arthur Shagall, Mindflight, Inc.
